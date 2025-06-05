@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\krist\\OneDrive\\Desktop\\Projektas\\Masteris\\Masteris\\Masteris.csproj",
-      "projectName": "Masteris",
-      "projectPath": "C:\\Users\\krist\\OneDrive\\Desktop\\Projektas\\Masteris\\Masteris\\Masteris.csproj",
+      "projectUniqueName": "C:\\Users\\krist\\OneDrive\\Desktop\\Projektas\\ScanerisB\\Scaneris\\Scaneris.csproj",
+      "projectName": "Scaneris",
+      "projectPath": "C:\\Users\\krist\\OneDrive\\Desktop\\Projektas\\ScanerisB\\Scaneris\\Scaneris.csproj",
       "packagesPath": "C:\\Users\\krist\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\krist\\OneDrive\\Desktop\\Projektas\\Masteris\\Masteris\\obj\\",
+      "outputPath": "C:\\Users\\krist\\OneDrive\\Desktop\\Projektas\\ScanerisB\\Scaneris\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,0 +1,15 @@
+C:\Users\krist\OneDrive\Desktop\Projektas\Masteris\Masteris\bin\Debug\net8.0\Masteris.exe
+C:\Users\krist\OneDrive\Desktop\Projektas\Masteris\Masteris\bin\Debug\net8.0\Masteris.deps.json
+C:\Users\krist\OneDrive\Desktop\Projektas\Masteris\Masteris\bin\Debug\net8.0\Masteris.runtimeconfig.json
+C:\Users\krist\OneDrive\Desktop\Projektas\Masteris\Masteris\bin\Debug\net8.0\Masteris.dll
+C:\Users\krist\OneDrive\Desktop\Projektas\Masteris\Masteris\bin\Debug\net8.0\Masteris.pdb
+C:\Users\krist\OneDrive\Desktop\Projektas\Masteris\Masteris\obj\Debug\net8.0\Masteris.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\krist\OneDrive\Desktop\Projektas\Masteris\Masteris\obj\Debug\net8.0\Masteris.AssemblyInfoInputs.cache
+C:\Users\krist\OneDrive\Desktop\Projektas\Masteris\Masteris\obj\Debug\net8.0\Masteris.AssemblyInfo.cs
+C:\Users\krist\OneDrive\Desktop\Projektas\Masteris\Masteris\obj\Debug\net8.0\Masteris.csproj.CoreCompileInputs.cache
+C:\Users\krist\OneDrive\Desktop\Projektas\Masteris\Masteris\obj\Debug\net8.0\Masteris.sourcelink.json
+C:\Users\krist\OneDrive\Desktop\Projektas\Masteris\Masteris\obj\Debug\net8.0\Masteris.dll
+C:\Users\krist\OneDrive\Desktop\Projektas\Masteris\Masteris\obj\Debug\net8.0\refint\Masteris.dll
+C:\Users\krist\OneDrive\Desktop\Projektas\Masteris\Masteris\obj\Debug\net8.0\Masteris.pdb
+C:\Users\krist\OneDrive\Desktop\Projektas\Masteris\Masteris\obj\Debug\net8.0\Masteris.genruntimeconfig.cache
+C:\Users\krist\OneDrive\Desktop\Projektas\Masteris\Masteris\obj\Debug\net8.0\ref\Masteris.dll
