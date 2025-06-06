@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO.Pipes;
 class ScanerisB
 {
     static void Main(string[] args)
     {
+        Process.GetCurrentProcess().ProcessorAffinity = (IntPtr)2;
+
         string pipePav = "PipeB";
         string pipeAtgal = "DuomenysB";
 

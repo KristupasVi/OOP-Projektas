@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO.Pipes;
 class ScanerisA
 {
     static void Main(string[] args)
     {
+        Process.GetCurrentProcess().ProcessorAffinity = (IntPtr)1;
         string pipePav = "PipeA";
         string pipeAtgal = "DuomenysA";
 
@@ -18,6 +20,8 @@ class ScanerisA
         { 
             Console.WriteLine("Nepavyko gauti Folderio path iš master");
         }
+
+
     }
 
     static string GautiFolderioPath(string pipePav)
@@ -46,6 +50,7 @@ class ScanerisA
        
         using var siuntimasAtgal = IssiuntimasImaster(pipeAtgal);
         using var scaneris = new StreamWriter(siuntimasAtgal) { AutoFlush = true };
+
 
         foreach (string failas in failai)
         {

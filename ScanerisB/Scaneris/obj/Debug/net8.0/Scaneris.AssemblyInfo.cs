@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Scaneris")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+348e8d8d38217f740b95a4a97024128d0a03b596")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0da3476a72ece6cb68bf91e0d591ff1b1235343")]
 [assembly: System.Reflection.AssemblyProductAttribute("Scaneris")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Scaneris")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -11,6 +11,7 @@
         static void Main(string[] args)
         {
 
+            Process.GetCurrentProcess().ProcessorAffinity = (IntPtr)4;
             string pipe1Pav = "PipeA";
             string folderio1Path = @"C:\Users\krist\OneDrive\Desktop\Uzrasai";
             string rezultatas1 = "DuomenysA";
@@ -18,11 +19,22 @@
             string folderio2Path = @"C:\Users\krist\OneDrive\Desktop\Pasakos";
             string rezultatas2 = "DuomenysB";
 
-            SiuntimasScaneriui(pipe1Pav, folderio1Path);
-            GautiRezultatai(rezultatas1);
-            SiuntimasScaneriui(pipe2Pav, folderio2Path);
-            GautiRezultatai(rezultatas2);
+            Thread siuntimas1 = new(() => SiuntimasScaneriui(pipe1Pav, folderio1Path));
+            Thread gavimasAtgal1 = new(() => GautiRezultatai(rezultatas1));
 
+            Thread siuntimas2 = new(() => SiuntimasScaneriui(pipe2Pav, folderio2Path));
+            Thread gavimasAtgal2 = new(() => GautiRezultatai(rezultatas2));
+
+
+            siuntimas1.Start();
+            gavimasAtgal1.Start();
+            siuntimas2.Start();
+            gavimasAtgal2.Start();
+
+            siuntimas1.Join();
+            gavimasAtgal1.Join();
+            siuntimas2.Join();
+            gavimasAtgal2.Join();
         }
 
         static void SiuntimasScaneriui(string pipePav, string folderioPath)
