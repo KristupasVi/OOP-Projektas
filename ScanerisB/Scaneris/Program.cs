@@ -3,6 +3,8 @@ using System.Diagnostics;
 using System.IO.Pipes;
 class ScanerisB
 {
+    static List<string> duomenysAtgal = new List<string>();
+    static bool baigeSkaityma = false;
     static void Main(string[] args)
     {
         Process.GetCurrentProcess().ProcessorAffinity = (IntPtr)2;
@@ -15,7 +17,14 @@ class ScanerisB
         if (!string.IsNullOrEmpty(gautasPath))
         {
             Console.WriteLine($"Gautas folderio path iš master: {gautasPath}");
-            NuskaitytiFailus(gautasPath, pipeAtgal);
+            Thread skaitymoT = new Thread(() => NuskaitytiFailus(gautasPath));
+            Thread siuntimoT = new Thread(() => IssiuntimasImaster(pipeAtgal));
+
+            skaitymoT.Start();
+            siuntimoT.Start();
+
+            skaitymoT.Join();
+            siuntimoT.Join();
         }
         else
         { 
@@ -34,11 +43,12 @@ class ScanerisB
         return skaitytuvas.ReadLine();
     }
 
-    static void NuskaitytiFailus(string path, string pipeAtgal)
+    static void NuskaitytiFailus(string path)
     {
         if (!Directory.Exists(path))
         {
             Console.WriteLine($"Katalogas neegzistuoja: {path}");
+            baigeSkaityma = true;
             return;
         }
 
@@ -46,32 +56,40 @@ class ScanerisB
 
         Console.WriteLine($"Rasta tiek {failai.Length}, .txt failų:");
 
-       
-        using var siuntimasAtgal = IssiuntimasImaster(pipeAtgal);
-        using var scaneris = new StreamWriter(siuntimasAtgal) { AutoFlush = true };
-
         foreach (string failas in failai)
         {
             string tekstas = File.ReadAllText(failas);
             var zodziuStatistika = SkaiciuotiZodzius(tekstas);
 
-            scaneris.WriteLine($"\nKnygos {Path.GetFileName(failas)} statistika: ");
+            duomenysAtgal.Add($"\nKnygos {Path.GetFileName(failas)} statistika: ");
             foreach (var pora  in zodziuStatistika)
             {
-                scaneris.WriteLine($"{pora.Key}:{pora.Value}");
+                duomenysAtgal.Add($"{pora.Key}:{pora.Value}");
             }
         }
 
-        scaneris.WriteLine("\nVISOS KNYGOS BUVO NUSKENUOTOS");
+        duomenysAtgal.Add("\nVISOS KNYGOS BUVO NUSKENUOTOS");
+        baigeSkaityma = true;
     }
 
-    static NamedPipeClientStream IssiuntimasImaster(string pipePav)
+    static void IssiuntimasImaster (String pipePav)
     {
         var siuntimasMasteriui = new NamedPipeClientStream(".", pipePav, PipeDirection.Out);
         Console.WriteLine("Scaneris: Jungiamasi prie Master rezultato pipe:");
         siuntimasMasteriui.Connect();
         Console.WriteLine($"Prisijungta prie {pipePav}");
-        return siuntimasMasteriui;
+
+        using var scaneris = new StreamWriter(siuntimasMasteriui) { AutoFlush = true };
+
+        while (!baigeSkaityma || duomenysAtgal.Count > 0)
+        {
+            if (duomenysAtgal.Count > 0)
+            {
+                string eilute = duomenysAtgal[0];
+                duomenysAtgal.RemoveAt(0);
+                scaneris.WriteLine(eilute);
+            }
+        }
     }
     static Dictionary<string, int> SkaiciuotiZodzius(string tekstas)
     {

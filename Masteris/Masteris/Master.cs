@@ -12,6 +12,7 @@
         {
 
             Process.GetCurrentProcess().ProcessorAffinity = (IntPtr)4;
+
             string pipe1Pav = "PipeA";
             string folderio1Path = @"C:\Users\krist\OneDrive\Desktop\Uzrasai";
             string rezultatas1 = "DuomenysA";
@@ -39,7 +40,7 @@
 
         static void SiuntimasScaneriui(string pipePav, string folderioPath)
         {
-            using var serveris = new NamedPipeServerStream(pipePav, PipeDirection.Out); //  NamedPipeClientStream tas kuris jungiasi prie serverio
+            using var serveris = new NamedPipeServerStream(pipePav, PipeDirection.Out); 
             Console.WriteLine("Master, laukia Scanerio prisijungimo...");
             serveris.WaitForConnection();
             Console.WriteLine("Master: Prisijungė Scaneris");
