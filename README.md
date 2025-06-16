@@ -3,7 +3,7 @@
 ## Branch: `main`
 Šis branch yra pagrindinis ir aktyviai vystomas.
 
-## Branch: `master`
+## Masteris
 - Veikia tinkamai.
 - Šiuo metu **be thread'ų** ir **be CPU branduolių** palaikymo.
 
