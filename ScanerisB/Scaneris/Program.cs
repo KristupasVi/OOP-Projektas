@@ -34,7 +34,7 @@ class ScanerisB
 
     static string GautiFolderioPath(string pipePav)
     {
-        using var Scaneris  = new NamedPipeClientStream(".", pipePav, PipeDirection.In); // NamedPipeServerStream tas kuris laukia kol prisijungs tas iš Mastrer su NamedPipeClientStream
+        using var Scaneris  = new NamedPipeClientStream(".", pipePav, PipeDirection.In); 
         Console.WriteLine("Scaneris: Jungiasi prie master");
         Scaneris.Connect();
         Console.WriteLine("Scaneris: Prisijungta");
